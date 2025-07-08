@@ -5,7 +5,7 @@ export const ShowTasks = ({
   taskList,
   setTaskList,
   filterStatus,
-  searchStatus,
+
   categoryFilterStatuse,
   setTask,
   isSort,
@@ -48,13 +48,7 @@ export const ShowTasks = ({
            : ""
        }
 
-        ${
-          [...searchStatus]
-            .map((item) => item.date === task.date)
-            .includes(true)
-            ? ""
-            : "hidden"
-        } `}
+ `}
         key={id}
       >
         <p className="flex justify-center "> Category : {task.category}</p>
@@ -76,7 +70,6 @@ export const ShowTasks = ({
             taskList={taskList}
             setTaskList={setTaskList}
             filterStatus={filterStatus}
-            searchStatus={searchStatus}
             setTask={setTask}
             isSort={isSort}
           />
@@ -86,7 +79,6 @@ export const ShowTasks = ({
             taskList={taskList}
             setTaskList={setTaskList}
             filterStatus={filterStatus}
-            searchStatus={searchStatus}
             setTask={setTask}
           />
         </div>

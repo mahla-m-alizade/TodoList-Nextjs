@@ -4,7 +4,6 @@ export const Header = ({ taskList, setTaskList, task, setTask }) => {
   const [newTaskValue, setNewTaskValue] = useState("");
   const [hidden, sethidden] = useState(true);
   const [category, setCategory] = useState("none");
-
   const Handlesub = (event) => {
     event.preventDefault();
     if (task) {
@@ -13,7 +12,7 @@ export const Header = ({ taskList, setTaskList, task, setTask }) => {
           ? {
               task: task.task,
               checked: task.checked,
-              date: new Date().toLocaleString(),
+              date: new Date().toISOString(),
               pinned: task.pinned,
               category: category !== "none" ? category : task.category,
             }
@@ -27,7 +26,7 @@ export const Header = ({ taskList, setTaskList, task, setTask }) => {
       const newTask = {
         task: event.target.addTask.value,
         checked: false,
-        date: new Date().toLocaleString(),
+        date: new Date().toISOString(),
         pinned: false,
         category: category ? category : "none",
       };

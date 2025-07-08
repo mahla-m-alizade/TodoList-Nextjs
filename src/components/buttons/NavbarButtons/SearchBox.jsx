@@ -1,24 +1,21 @@
 "use client";
-import { useEffect, useState } from "react";
-
-export const SearchBox = ({ taskList, setTaskList, setSearchStatus }) => {
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+export const SearchBox = () => {
   const [SearchVal, setSearchVal] = useState("");
   const searchOnChange = (e) => {
     setSearchVal(e.target.value);
-    if (e.target.value == "") setSearchStatus(taskList);
+    if (e.target.value == "") {
+      router.push(`/`);
+    }
   };
-
-  useEffect(() => {
-    if (SearchVal == "") setSearchStatus(taskList);
-  }, [taskList]);
 
   const handleSub = (e) => {
     e.preventDefault();
-    const searchTask = [...taskList].filter((task) => {
-      return task.task.includes(SearchVal);
-    });
-    setSearchStatus(searchTask);
+
+    router.push(`/search/${SearchVal}`);
   };
+  const router = useRouter();
 
   return (
     <>
